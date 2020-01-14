@@ -1,0 +1,240 @@
+/***********************************/
+/*********   HEADER   **************/
+/***********************************/
+
+.header{
+   position: fixed;
+   left: 0; 
+   right: 0;
+   top: 0;
+   width: 100%;
+   padding: 6rem 2rem;
+   z-index: 99;
+   display: flex;
+   justify-content: space-between;
+   max-width: 1270px;
+   margin: 0 auto;
+
+   @media #{$mDesktop} {
+      padding: 4rem 2rem;
+   }
+
+   &.is-open{
+      .header{
+         &__logo{
+            span{
+               transition: color .3s ease-in-out;
+               color: #fff;
+            }
+         }
+      }
+   }
+
+   @media #{$tablet} {
+      padding: 2rem;
+   }
+   @media #{$mobile} {
+      padding: 1.5rem 2rem;
+   }
+
+   &__logo{
+      display: flex;
+      align-items: center;
+      padding-top: 1rem;
+      color: #fff;
+      font-weight: 300;
+
+      span{
+         color: $cRed;
+         font-weight: 700;
+      }
+   }
+
+   &__nav{
+      display: flex;
+      align-items: center;
+   }
+
+   &__social{
+      a{
+         color: #fff;
+         font-size: 2rem;
+         margin: 0 0.8rem;
+      }
+   }
+
+   .hamburger{
+      position: relative;
+      margin-left: 3rem;
+      padding: 0.5rem;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;  
+
+      span{
+         position: relative;
+         display: block;
+         margin-bottom: 0.3rem;
+         &:last-child{
+            margin-bottom: 0;
+         }
+      }
+
+      &--line{
+         height: 3px;
+         width: 4rem;
+         background-color: #fff;
+
+         &.top{
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+         }
+         &.bot{
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+         }
+      }
+
+      &--text{
+         font-size: 1rem;
+         font-weight: 200;
+      }
+   }
+
+   .modalClose{
+      text-align: center;
+      margin-top: 2rem;
+      padding: 30px 0;
+      cursor: pointer;
+      display: none;
+
+
+      
+      span{
+         position: relative;
+         display: block;
+         height: 3px;
+         width: 7rem;
+         background-color: #fff;
+         transform: rotate(45deg);
+         box-shadow: -2px -2px 2px rgba($cRed,.2), 2px 2px 2px rgba(84,193,140,.2);
+         transition: transform .5s ease;
+
+         &:last-child{
+            transform: rotate(-45deg);
+            top: -3px;
+         }
+      }
+   }
+}
+
+.__app{
+   &.is-modal{
+      .header{
+         justify-content: center;
+      }
+      .modalClose{
+         display: block;
+      }
+   }
+}
+
+.global-menu{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: $cRed;
+   width: 100%;
+   height: 100vh;
+   padding-top: 9.7rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transform: translateY(-100%);
+   z-index: 99;
+   @media #{$sDesktop} {
+      padding-top: 7rem;
+   }
+
+   &__list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      z-index: 7;
+
+      li{
+         display: block;
+         margin-bottom: 2rem;
+         position: relative;
+         @media #{$sDesktop} {
+            margin-bottom: 0;
+         }
+
+         a{
+            display: block;
+            text-transform: uppercase;
+            font-size: 10rem;
+            font-weight: 900;
+            text-align: center;
+            letter-spacing: 1px;
+            position: relative;
+            color: transparent;
+
+            @media #{$sDesktop} {
+               font-size: 8rem;
+            }
+
+            @media #{$mobile} {
+               font-size: 6rem;
+            }
+
+            &:focus {
+               outline: none;
+            }
+
+            &::before, &::after {
+               content: attr(data-text);
+               position: absolute;
+               top: 0;
+               left: 0;
+               text-transform: uppercase;
+               transition: color .2s ease-in;
+            }
+
+            &::before {
+               color: #fff;
+               clip-path: polygon(0% 100%, 100% 100%, 100% 41%, 0 60%)
+            }
+            
+            &::after {
+               color: lighten($cRed, 20%);
+               clip-path: polygon(0 0, 100% 0%, 100% 36%, 0 56%);
+               animation: slide 5s infinite;
+            }
+
+            &:hover{
+               &::before {
+                  color: lighten($cRed, 20%);
+               }
+               &::after {
+                  color: #fff;
+               }
+            }
+         }
+      }
+   }
+}
+
+@keyframes slide {
+   0% {
+      transform: translateX(0);
+   }
+   50% {
+      transform: translate(-1.5rem, 2%);
+   }
+}

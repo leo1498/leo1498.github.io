@@ -1,0 +1,33 @@
+{
+  "name": "Webpack_starter",
+  "version": "1.1.0",
+  "description": "[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack --watch --env.production=false",
+    "dev": "webpack --env.production=false",
+    "production": "webpack --env.production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.2",
+    "gsap": "^2.1.3",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webpack-plugin": "^1.6.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "webpack": "^3.10.0"
+  }
+}
